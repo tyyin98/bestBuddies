@@ -1,21 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
 
 :root {
   --primary: #002145;
   --secondary: #6d15df;
 }
-h1,h2,h3 {
+h1,
+h2,
+h3 {
   margin: 0;
 }
 
 .web-name {
-  font-family: 'ARIAL';
+  font-family: "ARIAL";
 }
 
 body {
   margin: 0;
   color: #333;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   background: #f2f2f2;
 }
 nav {
@@ -45,18 +47,18 @@ nav h1 {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
 }
- 
- .post-card {
+
+.post-card {
   width: 100%;
   padding: 10px;
-  background: #BCDFF7;
+  background: #bcdff7;
   box-sizing: border-box;
   border-radius: 6px;
   position: relative;
-  border: 2px solid #057BA4;
- }
- 
- .post-card .course-name {
+  border: 2px solid #057ba4;
+}
+
+.post-card .course-name {
   position: absolute;
   top: -10px;
   right: -10px;
@@ -64,14 +66,14 @@ nav h1 {
   background: var(--primary);
   color: #fff;
   border-radius: 6px;
-  width:80px;
+  width: 80px;
   height: 0;
   padding: 20px 0;
   line-height: 0px;
   text-align: center;
- }
+}
 
- /* forms  - David */
+/* forms  - David */
 form {
   background: #ffffff;
   padding: 20px;
@@ -89,7 +91,7 @@ form textarea {
   border: 1px solid #ccc;
   margin: 10px 0 20px 0;
   resize: none;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 16px;
 }
 
@@ -100,7 +102,7 @@ form input {
   box-sizing: border-box;
   border: 1px solid #ccc;
   margin: 10px 0 20px 0;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 16px;
 }
 
@@ -214,7 +216,7 @@ a:hover {
 }
 
 .order-by button:hover {
-  background: #057BA4;
+  background: #057ba4;
 }
 
 input[type="text"] {
@@ -240,7 +242,7 @@ input[type="text"]:focus {
 }
 
 .logo-text {
-  width:30%;
+  width: 30%;
 }
 
 .post-title {
@@ -250,7 +252,7 @@ input[type="text"]:focus {
 
 /* for creat post button */
 .post-button-container {
-  text-align: right; 
+  text-align: right;
 }
 
 .button-style {
@@ -266,6 +268,25 @@ input[type="text"]:focus {
   transition: background-color 0.3s; /* Smooth transition for the background color */
 }
 
+.logout-btn-style {
+  padding: 10px 15px;
+  /* background-color: #28a745;  */
+  /* Original background color */
+  color: white; /* Text color */
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  position: relative;
+  right: 125px; /* Moves the button 10px to the right */
+  top: -10px;
+  transition: background-color 0.3s; /* Smooth transition for the background color */
+}
+
+.logout-btn-style:hover {
+  background-color: #218838;
+  cursor: pointer;
+}
+
 .button-style:hover {
   background-color: #218838; /* New background color when hovered */
 }
@@ -276,15 +297,14 @@ input[type="text"]:focus {
 }
 
 .create-button:hover {
-  background: #057BA4;
+  background: #057ba4;
 }
 
 /* .linkContainer {
   display: flex;
   /* align-items:center; */
-  /* justify-content: left; */
-  /* position: relative;
+/* justify-content: left; */
+/* position: relative;
   right: 400px; /* Moves the button 10px to the right */
-  /* top: 50px; */
+/* top: 50px; */
 /* } */
-

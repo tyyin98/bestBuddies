@@ -4,8 +4,11 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Create from "./pages/Create";
 import Update from "./pages/Update";
-// import SearchBar from "./Components/SearchBar"
+import Login from "./pages/Login";
 
+import ProtectedRoute from "./pages/ProtectedRoute";
+import Nav from "./Components/Nav";
+// import SearchBar from "./Components/SearchBar"
 
 function App() {
   return (
@@ -14,27 +17,34 @@ function App() {
         <SearchBar placeholder="Enter a Sourse Name..."/>
       </div> */}
 
-      <nav>
-        <div className="linkContainer">  
-          <Link to="/"><div><div>
-        < img className = "logo" src="./logoBuddies.png" alt="Description" />
-      </div>
-      <div>
-        < img className = "logo-text" src="./logoText.png" alt="Description" />
-      </div></div></Link>
-        </div>
-        {/* <div>
-          <Link to="/create">Create Your Post</Link>
-        </div> */}
-        <div className = "post-button-container">
-          <Link to="/create" className="button-style">Create Your Post</Link>
-        </div>
-        
-      </nav>
+      <Nav />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/create" element={<Create />} />
-        <Route path="/:id" element={<Update />} />
+        <Route path="/login" element={<Login />} />
+
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/create"
+          element={
+            <ProtectedRoute>
+              <Create />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/:id"
+          element={
+            <ProtectedRoute>
+              <Update />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
