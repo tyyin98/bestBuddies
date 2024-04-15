@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // pages
 import Home from "./pages/Home";
@@ -17,31 +17,18 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/login" element={<Login />} />
-
         <Route
           path="/"
           element={
             <ProtectedRoute>
-              <Home />
+              <AppLayout />
             </ProtectedRoute>
           }
-        />
-        <Route
-          path="/create"
-          element={
-            <ProtectedRoute>
-              <Create />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/:id"
-          element={
-            <ProtectedRoute>
-              <Update />
-            </ProtectedRoute>
-          }
-        />
+        >
+          <Route index element={<Home />} />
+          <Route path="create" element={<Create />} />
+          <Route path=":id" element={<Update />} />
+        </Route>
       </Routes>
     </>
   );

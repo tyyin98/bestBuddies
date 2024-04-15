@@ -23,6 +23,7 @@ function AuthProvider({ children }) {
           setIsLoading(false);
         } else {
           console.log("triggered");
+          setIsLoading(false);
           navigate("/login");
         }
       }

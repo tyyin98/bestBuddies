@@ -71,9 +71,7 @@ const Home = () => {
 
   return (
     <div className="page home">
-      <div className="post-title">
-        <h1>Active Posts</h1>
-      </div>
+      <div className="post-title">{/* <h1>Active Posts</h1> */}</div>
 
       <input
         type="text"
