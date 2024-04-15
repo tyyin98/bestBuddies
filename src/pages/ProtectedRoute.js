@@ -11,25 +11,14 @@ function ProtectedRoute({ children }) {
 
   useEffect(
     function () {
-      async function authorizeUser() {
-        const user = await getCurrentUser();
-        if (user) {
-          setIsAuthenticated(true);
-          // console.log("see below");
-          // console.log(user);
-          setUser(user);
-          setIsLoading(false);
-        } else {
-          console.log("triggered");
-          navigate("/login");
-        }
+      if (!isAuthenticated) {
+        navigate("/login");
       }
-      authorizeUser();
     },
-    [isAuthenticated, setIsAuthenticated, setUser, navigate]
+    [isAuthenticated, navigate]
   );
 
-  return <div>{!isLoading && children}</div>;
+  return isAuthenticated ? children : null;
 }
 
 export default ProtectedRoute;

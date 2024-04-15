@@ -13,11 +13,7 @@ import AppLayout from "./pages/AppLayout";
 
 function App() {
   return (
-    <BrowserRouter>
-      {/* <div className="App">
-        <SearchBar placeholder="Enter a Sourse Name..."/>
-      </div> */}
-
+    <>
       <Nav />
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -47,7 +43,7 @@ function App() {
           }
         />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 
