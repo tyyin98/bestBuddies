@@ -1,5 +1,6 @@
 import supabase from "../config/supabaseClient";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 //components
 import PostCard from "../Components/PostCard";
@@ -13,7 +14,7 @@ const Home = () => {
   const [descending, setDescending] = useState(true);
   const [searchDpt, setSearchDpt] = useState("");
   const [filteredPosts, setFilteredPosts] = useState(null);
-  const { user } = useAuth();
+  const { user, isAuthenticated } = useAuth();
 
   const [userPostsOnly, setUserPostsOnly] = useState(null);
 
@@ -96,7 +97,6 @@ const Home = () => {
           </div>
           <div className="post-grid">
             {filteredPosts.map((post) => (
-              // <p>{post.postTitle}</p >
               <PostCard key={post.id} post={post} onDelete={handleDelete} />
             ))}
           </div>
@@ -116,13 +116,16 @@ const Home = () => {
           </div>
           <div className="post-grid">
             {posts.map((post) => (
-              // <p>{post.postTitle}</p >
               <PostCard key={post.id} post={post} onDelete={handleDelete} />
             ))}
           </div>
         </div>
       )}
-      <p></p>
+      {isAuthenticated && (
+        <Link to="/create" className="createButtonSml">
+          <span>✏️</span>
+        </Link>
+      )}
     </div>
   );
 };
