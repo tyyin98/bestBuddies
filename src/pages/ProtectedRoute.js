@@ -1,34 +1,35 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { getCurrentUser } from "../services/apiAuth";
 
 // eslint-disable-next-line react/prop-types
 function ProtectedRoute({ children }) {
-  const { isAuthenticated, setIsAuthenticated } = useAuth();
+  const [isLoading, setIsLoading] = useState(true);
+  const { isAuthenticated, setIsAuthenticated, setUser } = useAuth();
   const navigate = useNavigate();
 
   useEffect(
     function () {
-      if (!isAuthenticated) {
-        navigate("/login");
+      async function authorizeUser() {
+        const user = await getCurrentUser();
+        if (user) {
+          setIsAuthenticated(true);
+          // console.log("see below");
+          // console.log(user);
+          setUser(user);
+          setIsLoading(false);
+        } else {
+          console.log("triggered");
+          navigate("/login");
+        }
       }
+      authorizeUser();
     },
-    [isAuthenticated, navigate]
+    [isAuthenticated, setIsAuthenticated, setUser, navigate]
   );
 
-  return isAuthenticated ? children : null;
+  return <div>{!isLoading && children}</div>;
 }
-
-// // Set login state in localStorage
-// localStorage.setItem('isLoggedIn', 'true');
-
-// // Retrieve login state from localStorage
-// isAuthenticated = localStorage.getItem('isLoggedIn') === 'true';
-
-// // Example: Update state based on stored value
-// useEffect(() => {
-//   const loggedStatus = localStorage.getItem('isLoggedIn') === 'true';
-//   setIsAuthenticated(loggedStatus);
-// }, []);
 
 export default ProtectedRoute;

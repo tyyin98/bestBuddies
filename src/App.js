@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 
 import ProtectedRoute from "./pages/ProtectedRoute";
 import Nav from "./Components/Nav";
+import AppLayout from "./pages/AppLayout";
 // import SearchBar from "./Components/SearchBar"
 
 function App() {
