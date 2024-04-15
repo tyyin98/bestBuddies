@@ -1,12 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import { useEffect, useState } from "react";
-import { getCurrentUser } from "../services/apiAuth";
+import { useEffect } from "react";
 
 // eslint-disable-next-line react/prop-types
 function ProtectedRoute({ children }) {
-  const [isLoading, setIsLoading] = useState(true);
-  const { isAuthenticated, setIsAuthenticated, setUser } = useAuth();
+  const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   useEffect(

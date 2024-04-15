@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { login } from "../services/apiAuth.js";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext.js";
 // import "../styles.css";
 
